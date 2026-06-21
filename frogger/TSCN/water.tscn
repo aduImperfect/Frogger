@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bvtnrgjgfvnm"]
+
+[ext_resource type="Texture2D" uid="uid://bcb6yt63sgnr0" path="res://Textures/Water.png" id="1_8b5g5"]
+
+[node name="Water" type="Node2D" unique_id=467562873]
+
+[node name="Water" type="Sprite2D" parent="." unique_id=21274747]
+z_index = -5
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_8b5g5")

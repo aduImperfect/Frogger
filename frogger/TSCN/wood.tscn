@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dmyxeru2eov15"]
+
+[ext_resource type="Texture2D" uid="uid://bk5lmuwkjtxp8" path="res://Textures/Wood.png" id="1_xott2"]
+[ext_resource type="Script" uid="uid://b552o2b6jfok7" path="res://TSCN/vehicle_area_2d.gd" id="2_j4si5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37647"]
+size = Vector2(150, 100)
+
+[node name="Wood" type="Node2D" unique_id=1478932586]
+
+[node name="Wood" type="Sprite2D" parent="." unique_id=2014580643]
+z_index = 5
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_xott2")
+
+[node name="WoodArea2D" type="Area2D" parent="Wood" unique_id=591161089]
+script = ExtResource("2_j4si5")
+
+[node name="WoodCollisionShape2D" type="CollisionShape2D" parent="Wood/WoodArea2D" unique_id=1680925090]
+z_index = 15
+shape = SubResource("RectangleShape2D_37647")
+debug_color = Color(0.7490196, 0.45882353, 0, 0.69411767)
+
+[connection signal="area_entered" from="Wood/WoodArea2D" to="Wood/WoodArea2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Wood/WoodArea2D" to="Wood/WoodArea2D" method="_on_area_exited"]
