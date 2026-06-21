@@ -8,13 +8,22 @@ const VEHICLE_SCENE = preload("res://TSCN/vehicle.tscn")
 @export var frogXVal : float = 0.0
 @export var frogYVal : float = 0.0
 
+@export var vehiclesArr : Array[Node2D] = []
+@export var vehiclesNum : int = 0
+
+@export var infiniteXVal : float = 0.0
+@export var infiniteYVal : float = 0.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	frogXVal = 550.0
 	frogYVal = 630.0
+	vehiclesNum = 24
+	infiniteXVal = -9999.0
+	infiniteYVal = -9999.0
 	_spawn_frog()
 	_spawn_roads()
-
+	_spawn_vehicles()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -42,3 +51,12 @@ func _spawn_roads() -> void:
 			road_instance.global_position.x = xBeginVal + (k * xOffset)
 			road_instance.global_position.y = yBeginVal + (j * yOffset)
 			add_child(road_instance)
+
+func _spawn_vehicles() -> void:
+	var vehicle_instance
+	for k in vehiclesNum:
+		vehicle_instance = VEHICLE_SCENE.instantiate()
+		vehicle_instance.global_position.x = infiniteXVal
+		vehicle_instance.global_position.y = infiniteXVal
+		add_child(vehicle_instance)
+		vehiclesArr.append(vehicle_instance)
