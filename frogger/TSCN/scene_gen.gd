@@ -21,10 +21,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if initial_spawning == false:
 		_spawn_frog()
+		_spawn_roads()
 		initial_spawning = true
-
-func _spawn_roads() -> void:
-	pass
 
 func _spawn_frog() -> void:
 	var frog_instance
@@ -33,3 +31,18 @@ func _spawn_frog() -> void:
 	frog_instance.global_position.y = frogYVal
 	add_child(frog_instance)
 	frogNode = frog_instance
+
+func _spawn_roads() -> void:
+	var road_instance
+	var xCount : int = 8
+	var yCount : int = 4
+	var xBeginVal : float = 100.0
+	var yBeginVal : float = 100.0
+	var xOffset : float = 200.0
+	var yOffset : float = 145.0
+	for j in yCount:
+		for k in xCount:
+			road_instance = ROAD_SCENE.instantiate()
+			road_instance.global_position.x = xBeginVal + (k * xOffset)
+			road_instance.global_position.y = yBeginVal + (j * yOffset)
+			add_child(road_instance)
