@@ -100,7 +100,6 @@ func _move_character(_movementStr : String) -> void:
 		sceneGen.frogNode.position.x += frogHorizSpeed
 		xPath += 1
 #------------------------
-
-	print(xPath)
-	print(yLane)
-	print(sceneGen.frogNode.position)
+	#print(xPath)
+	#print(yLane)
+	#print(sceneGen.frogNode.position)
