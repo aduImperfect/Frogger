@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ddyxtfya5wvu8" path="res://TSCN/frog_area_2d.gd" id="2_575sj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cs2f"]
+size = Vector2(100, 75)
 
 [node name="Frog" type="Node2D" unique_id=807306974]
 
@@ -15,6 +16,7 @@ texture = ExtResource("1_3cs2f")
 script = ExtResource("2_575sj")
 
 [node name="FrogCollisionShape2D" type="CollisionShape2D" parent="Frogger/FrogArea2D" unique_id=1182481546]
+z_index = 15
 shape = SubResource("RectangleShape2D_3cs2f")
 debug_color = Color(0.3647059, 0.47843137, 1, 0.654902)
 
