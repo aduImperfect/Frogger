@@ -14,6 +14,15 @@ const VEHICLE_SCENE = preload("res://TSCN/vehicle.tscn")
 @export var infiniteXVal : float = 0.0
 @export var infiniteYVal : float = 0.0
 
+@export var xRoadCount : int = 0
+@export var yRoadCount : int = 0
+
+@export var xBeginVal : float = 0.0
+@export var yBeginVal : float = 0.0
+@export var xOffset : float = 0.0
+@export var yOffset : float = 0.0
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	frogXVal = 550.0
@@ -21,6 +30,12 @@ func _ready() -> void:
 	vehiclesNum = 24
 	infiniteXVal = -9999.0
 	infiniteYVal = -9999.0
+	xRoadCount = 6
+	yRoadCount = 4
+	xBeginVal = 100.0
+	yBeginVal = 100.0
+	xOffset = 200.0
+	yOffset = 145.0
 	_spawn_frog()
 	_spawn_roads()
 	_spawn_vehicles()
@@ -39,14 +54,8 @@ func _spawn_frog() -> void:
 
 func _spawn_roads() -> void:
 	var road_instance
-	var xCount : int = 6
-	var yCount : int = 4
-	var xBeginVal : float = 100.0
-	var yBeginVal : float = 100.0
-	var xOffset : float = 200.0
-	var yOffset : float = 145.0
-	for j in yCount:
-		for k in xCount:
+	for j in yRoadCount:
+		for k in xRoadCount:
 			road_instance = ROAD_SCENE.instantiate()
 			road_instance.global_position.x = xBeginVal + (k * xOffset)
 			road_instance.global_position.y = yBeginVal + (j * yOffset)

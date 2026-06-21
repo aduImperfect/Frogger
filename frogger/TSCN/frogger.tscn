@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://ctr8m5g7ejmwe"]
 
 [ext_resource type="Script" uid="uid://b3oaacl0w4hm2" path="res://TSCN/scene_gen.gd" id="1_s73og"]
+[ext_resource type="Script" uid="uid://8rwn1p0wtaib" path="res://TSCN/vehicles_movement.gd" id="2_eoaxg"]
 
 [node name="Frogger" type="Node2D" unique_id=1073444259]
 
 [node name="SceneGen" type="Node2D" parent="." unique_id=1712617278]
 script = ExtResource("1_s73og")
+
+[node name="VehiclesMovement" type="Node2D" parent="." unique_id=1583175185 node_paths=PackedStringArray("sceneGen")]
+script = ExtResource("2_eoaxg")
+sceneGen = NodePath("../SceneGen")
