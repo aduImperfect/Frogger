@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b3oaacl0w4hm2" path="res://TSCN/scene_gen.gd" id="1_s73og"]
 [ext_resource type="Script" uid="uid://8rwn1p0wtaib" path="res://TSCN/vehicles_movement.gd" id="2_eoaxg"]
+[ext_resource type="Script" uid="uid://dfq0yffol6gaa" path="res://TSCN/player_movement.gd" id="3_vf3iu"]
+[ext_resource type="Script" uid="uid://cre4imeclc0mm" path="res://TSCN/win_condition.gd" id="4_bwvmv"]
+[ext_resource type="Script" uid="uid://cdgdo21akr5ab" path="res://TSCN/collision_mgr.gd" id="5_l2b1c"]
 
 [node name="Frogger" type="Node2D" unique_id=1073444259]
 
@@ -11,3 +14,25 @@ script = ExtResource("1_s73og")
 [node name="VehiclesMovement" type="Node2D" parent="." unique_id=1583175185 node_paths=PackedStringArray("sceneGen")]
 script = ExtResource("2_eoaxg")
 sceneGen = NodePath("../SceneGen")
+
+[node name="PlayerMovement" type="Node2D" parent="." unique_id=1354423347 node_paths=PackedStringArray("sceneGen")]
+script = ExtResource("3_vf3iu")
+sceneGen = NodePath("../SceneGen")
+
+[node name="WinCondition" type="Node2D" parent="." unique_id=2137496660 node_paths=PackedStringArray("playerMovementNode", "youWinText")]
+script = ExtResource("4_bwvmv")
+playerMovementNode = NodePath("../PlayerMovement")
+youWinText = NodePath("../YouWinText")
+
+[node name="YouWinText" type="TextEdit" parent="." unique_id=696388038]
+z_index = -10
+custom_minimum_size = Vector2(450, 200)
+offset_left = 350.0
+offset_top = 150.0
+offset_right = 800.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 100
+text = "YOU WIN"
+
+[node name="CollisionMgr" type="Node2D" parent="." unique_id=960812978]
+script = ExtResource("5_l2b1c")

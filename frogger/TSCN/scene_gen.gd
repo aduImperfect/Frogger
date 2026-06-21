@@ -14,6 +14,9 @@ const VEHICLE_SCENE = preload("res://TSCN/vehicle.tscn")
 @export var infiniteXVal : float = 0.0
 @export var infiniteYVal : float = 0.0
 
+@export var xVehiclesCount : int = 0
+@export var yVehiclesCount : int = 0
+
 @export var xRoadCount : int = 0
 @export var yRoadCount : int = 0
 
@@ -25,13 +28,15 @@ const VEHICLE_SCENE = preload("res://TSCN/vehicle.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	frogXVal = 550.0
+	frogXVal = 575.0
 	frogYVal = 630.0
 	vehiclesNum = 24
 	infiniteXVal = -9999.0
 	infiniteYVal = -9999.0
 	xRoadCount = 6
 	yRoadCount = 4
+	xVehiclesCount = 4
+	yVehiclesCount = 4
 	xBeginVal = 100.0
 	yBeginVal = 100.0
 	xOffset = 200.0
