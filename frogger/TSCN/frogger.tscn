@@ -34,5 +34,18 @@ offset_bottom = 350.0
 theme_override_font_sizes/font_size = 100
 text = "YOU WIN"
 
-[node name="CollisionMgr" type="Node2D" parent="." unique_id=960812978]
+[node name="CollisionMgr" type="Node2D" parent="." unique_id=960812978 node_paths=PackedStringArray("sceneGen", "playerMovement", "youLoseText")]
 script = ExtResource("5_l2b1c")
+sceneGen = NodePath("../SceneGen")
+playerMovement = NodePath("../PlayerMovement")
+youLoseText = NodePath("../YouLoseText")
+
+[node name="YouLoseText" type="TextEdit" parent="." unique_id=1444486847]
+z_index = -10
+custom_minimum_size = Vector2(500, 200)
+offset_left = 325.0
+offset_top = 150.0
+offset_right = 825.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 100
+text = "YOU LOSE"

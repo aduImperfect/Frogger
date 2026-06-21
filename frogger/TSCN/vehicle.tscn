@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://jt4abnp8q8i8"]
 
 [ext_resource type="Texture2D" uid="uid://bgbutap6287ko" path="res://Textures/Vehicle.png" id="1_83gty"]
+[ext_resource type="Script" uid="uid://b552o2b6jfok7" path="res://TSCN/vehicle_area_2d.gd" id="2_l2nhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83gty"]
 
 [node name="Vehicle" type="Node2D" unique_id=1988295688]
 
@@ -8,3 +11,13 @@
 z_index = 5
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_83gty")
+
+[node name="VehicleArea2D" type="Area2D" parent="Vehicle" unique_id=2074901669]
+script = ExtResource("2_l2nhc")
+
+[node name="VehicleCollisionShape2D" type="CollisionShape2D" parent="Vehicle/VehicleArea2D" unique_id=274465108]
+shape = SubResource("RectangleShape2D_83gty")
+debug_color = Color(0.7490196, 0.45882353, 0, 0.69411767)
+
+[connection signal="area_entered" from="Vehicle/VehicleArea2D" to="Vehicle/VehicleArea2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Vehicle/VehicleArea2D" to="Vehicle/VehicleArea2D" method="_on_area_exited"]

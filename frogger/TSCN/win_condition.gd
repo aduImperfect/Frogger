@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if playerMovementNode.gameDone == true:
+	if playerMovementNode.gameWon == true:
 		_zoder_win_text()
 
 func _zoder_win_text() -> void:

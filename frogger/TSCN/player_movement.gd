@@ -13,7 +13,8 @@ extends Node2D
 @export var xMoveLimit : int = 0
 @export var yMoveLimit : int = 0
 
-@export var gameDone : bool = false
+@export var gameWon : bool = false
+@export var gameLost : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,16 +25,17 @@ func _ready() -> void:
 	yLane = -1
 	xMoveLimit = 10
 	yMoveLimit = 4
-	gameDone = false
-	
+	gameWon = false
+	gameLost = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	#Frogger reached goal!
 	if yLane == yMoveLimit:
-		gameDone = true
+		gameWon = true
 
-	if gameDone == false:
+	if gameWon == false && gameLost == false:
 		_input_management(_delta)
 
 func _input_management(_delta : float) -> void:
