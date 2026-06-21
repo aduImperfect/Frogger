@@ -1,18 +1,21 @@
 extends Node2D
 
 @export var sceneGen : Node2D
+@export var collisionMgr : Node2D
 
 @export var xHiddenVal : float = 0.0
 @export var yHiddenVal : float = 0.0
 @export var xResetHiddenVal : float = 0.0
 
-@export var xLimit : float = 0.0
+@export var xUpperLimit : float = 0.0
+@export var xLowerLimit : float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	xHiddenVal = -500.0
+	xHiddenVal = -100.0
 	yHiddenVal = -625.0
-	xLimit = 1200.0
+	xUpperLimit = 1200.0
+	xLowerLimit = -50.0
 	xResetHiddenVal = -50.0
 	_repositioning_woods()
 
@@ -25,7 +28,10 @@ func _process(_delta: float) -> void:
 func _repositioning_woods() -> void:
 	for j in sceneGen.yWoodsCount:
 		for k in sceneGen.xWoodsCount:
-			sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x = xHiddenVal + (k * sceneGen.xOffset)
+			if j % 2 == 0:
+				sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x = xHiddenVal + (k * sceneGen.xOffset)
+			else:
+				sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x = (xUpperLimit - xHiddenVal) + (k * sceneGen.xOffset)
 			sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.y = yHiddenVal + (j * sceneGen.yOffset)
 
 func _move_woods(_delta : float) -> void:
@@ -36,10 +42,17 @@ func _move_woods(_delta : float) -> void:
 		for k in sceneGen.xWoodsCount:
 			var newMoveSpeed = randf_range(minSpeed + ((sceneGen.yWoodsCount - j) * minSpeed), maxSpeed + ((sceneGen.yWoodsCount - j) * maxSpeed))
 			moveSpeed = newMoveSpeed
-			sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x += (moveSpeed * _delta)
+			if j % 2 == 0:
+				sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x += (moveSpeed * _delta)
+			else:
+				sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x -= (moveSpeed * _delta)
 
 func _reset_positioning_woods() -> void:
 	for j in sceneGen.yWoodsCount:
 		for k in sceneGen.xWoodsCount:
-			if sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x > xLimit:
-				sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x = xResetHiddenVal
+			if sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x > xUpperLimit:
+				if j % 2 == 0:
+					sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x = xResetHiddenVal
+			elif sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x < xLowerLimit:
+				if j % 2 != 0:
+					sceneGen.woodsArr[k + (j * sceneGen.yWoodsCount)].position.x = (xUpperLimit - xResetHiddenVal)

@@ -17,6 +17,7 @@ script = ExtResource("2_575sj")
 
 [node name="FrogCollisionShape2D" type="CollisionShape2D" parent="Frogger/FrogArea2D" unique_id=1182481546]
 z_index = 15
+scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_3cs2f")
 debug_color = Color(0.3647059, 0.47843137, 1, 1)
 

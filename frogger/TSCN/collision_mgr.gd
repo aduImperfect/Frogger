@@ -6,7 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -31,21 +31,24 @@ func _collision_checks() -> void:
 			playerMovement.gameLost = true
 			break
 
-	if playerMovement.yLane > playerMovement.yMoveCamUpSwitchLimit:
+	if (playerMovement.yLane > playerMovement.yMoveCamUpSwitchLimit) && (playerMovement.yLane < playerMovement.yMoveLimit):
 		var sittingOnAWood : bool = false
 
 		for k in sceneGen.woodsNum:
 			var woodArea2D : Area2D = sceneGen.woodsArr[k].get_child(0).get_child(0)
-			if woodArea2D.frogSitting == true:
+			if (woodArea2D.frogSitting == true) && (frogArea2D.woodCarrier == true):
 				sittingOnAWood = true
 				print("Frog Sitting On Wood!")
 				sceneGen.frogNode.position.x = sceneGen.woodsArr[k].position.x
 				break
+			else:
+				sittingOnAWood = false
 
-		if sittingOnAWood == false:
-			print("Frog On Water!")
-			playerMovement.gameLost = true
-			return
+		#if sittingOnAWood == false:
+			#print("Frog On Water!")
+			#playerMovement.gameLost = true
+			#return
+
 
 	if (sceneGen.frogNode.position.x < 20.0):
 		print("Out Of Bounds")

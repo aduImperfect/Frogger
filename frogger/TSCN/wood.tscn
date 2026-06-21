@@ -17,6 +17,8 @@ texture = ExtResource("1_xott2")
 script = ExtResource("2_xott2")
 
 [node name="WoodCollisionShape2D" type="CollisionShape2D" parent="Wood/WoodArea2D" unique_id=1935703507]
+z_index = 15
+scale = Vector2(3.2, 3.2)
 shape = SubResource("RectangleShape2D_y7u7b")
 debug_color = Color(0.3764706, 0, 0.0627451, 1)
 
