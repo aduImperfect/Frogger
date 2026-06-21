@@ -12,6 +12,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if playerMovementNode.gameWon == true:
 		_zoder_win_text()
+	elif playerMovementNode.gameWon == false:
+		_zoder_not_win()
 
 func _zoder_win_text() -> void:
 	youWinText.z_index = 20
+
+func _zoder_not_win() -> void:
+	youWinText.z_index = -20

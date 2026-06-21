@@ -15,6 +15,7 @@ func _process(_delta: float) -> void:
 		_collision_checks()
 
 	if playerMovement.gameLost == true:
+		playerMovement.gameWon = false
 		_zoder_lose_text()
 
 func _collision_checks() -> void:
