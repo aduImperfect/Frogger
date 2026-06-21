@@ -32,8 +32,9 @@ sceneGen = NodePath("../SceneGen")
 playerMovement = NodePath("../PlayerMovement")
 youLoseText = NodePath("../Camera2D/YouLoseText")
 
-[node name="WoodsMovement" type="Node2D" parent="." unique_id=1244145818]
+[node name="WoodsMovement" type="Node2D" parent="." unique_id=1244145818 node_paths=PackedStringArray("sceneGen")]
 script = ExtResource("6_cals2")
+sceneGen = NodePath("../SceneGen")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=51661920]
 position = Vector2(575, 325)

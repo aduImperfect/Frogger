@@ -32,5 +32,15 @@ func _collision_checks() -> void:
 			playerMovement.gameLost = true
 			break
 
+	if (sceneGen.frogNode.position.x < 20.0):
+		print("Out Of Bounds")
+		playerMovement.gameLost = true
+		return
+
+	if (sceneGen.frogNode.position.x > 1150.0):
+		print("Out Of Bounds")
+		playerMovement.gameLost = true
+		return
+
 func _zoder_lose_text() -> void:
 	youLoseText.z_index = 20

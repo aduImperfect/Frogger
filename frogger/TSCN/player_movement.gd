@@ -3,6 +3,7 @@ extends Node2D
 @export var sceneGen : Node2D
 @export var camera : Camera2D
 
+
 @export var frogVertSpeed : float = 0.0
 @export var frogSpeedVertAdditive : float = 0.0
 
@@ -30,7 +31,7 @@ func _ready() -> void:
 	frogHorizSpeed = 50.0
 	xPath = 0
 	yLane = -1
-	xMoveLimit = 10
+	xMoveLimit = 12
 	yMoveLimit = 10
 	yMoveCamUpSwitchLimit = 5
 	yMoveCamDownSwitchLimit = 4

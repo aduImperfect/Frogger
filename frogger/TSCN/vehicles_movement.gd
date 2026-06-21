@@ -34,9 +34,7 @@ func _move_vehicles(_delta : float) -> void:
 	var moveSpeed : float = 0.0
 	for j in sceneGen.yVehiclesCount:
 		for k in sceneGen.xVehiclesCount:
-			var newMoveSpeed = randf_range(minSpeed + ((sceneGen.yVehiclesCount - j) * minSpeed), maxSpeed + ((sceneGen.yRoadCount - j) * maxSpeed))
-			#while (abs(newMoveSpeed - moveSpeed) < (2 * minSpeed)):
-				#newMoveSpeed = randf_range(minSpeed + ((sceneGen.yRoadCount - j) * minSpeed), maxSpeed + ((sceneGen.yRoadCount - j) * maxSpeed))
+			var newMoveSpeed = randf_range(minSpeed + ((sceneGen.yVehiclesCount - j) * minSpeed), maxSpeed + ((sceneGen.yVehiclesCount - j) * maxSpeed))
 			moveSpeed = newMoveSpeed
 			sceneGen.vehiclesArr[k + (j * sceneGen.yVehiclesCount)].position.x += (moveSpeed * _delta)
 
