@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bsld4aoh3oyk2"]
+
+[ext_resource type="Texture2D" uid="uid://cxbbgxwl3og1k" path="res://Textures/Road.png" id="1_fk2ap"]
+
+[node name="Road" type="Node2D" unique_id=1160776194]
+
+[node name="Road" type="Sprite2D" parent="." unique_id=196366543]
+z_index = -5
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fk2ap")

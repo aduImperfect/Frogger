@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://jt4abnp8q8i8"]
+
+[ext_resource type="Texture2D" uid="uid://bgbutap6287ko" path="res://Textures/Vehicle.png" id="1_83gty"]
+
+[node name="Vehicle" type="Node2D" unique_id=1988295688]
+
+[node name="Vehicle" type="Sprite2D" parent="." unique_id=1046737514]
+z_index = 5
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_83gty")

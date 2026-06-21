@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bf3bnj81t4sic"]
+
+[ext_resource type="Texture2D" uid="uid://dunr0yvrl53do" path="res://Textures/Frogger.png" id="1_3cs2f"]
+
+[node name="Frog" type="Node2D" unique_id=807306974]
+
+[node name="Frogger" type="Sprite2D" parent="." unique_id=1937400922]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_3cs2f")
