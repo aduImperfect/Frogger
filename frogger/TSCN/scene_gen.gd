@@ -39,7 +39,7 @@ func _spawn_frog() -> void:
 
 func _spawn_roads() -> void:
 	var road_instance
-	var xCount : int = 8
+	var xCount : int = 6
 	var yCount : int = 4
 	var xBeginVal : float = 100.0
 	var yBeginVal : float = 100.0
