@@ -8,21 +8,17 @@ const VEHICLE_SCENE = preload("res://TSCN/vehicle.tscn")
 @export var frogXVal : float = 0.0
 @export var frogYVal : float = 0.0
 
-@export var initial_spawning : bool = false
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	frogXVal = 550.0
 	frogYVal = 630.0
+	_spawn_frog()
+	_spawn_roads()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if initial_spawning == false:
-		_spawn_frog()
-		_spawn_roads()
-		initial_spawning = true
+	pass
 
 func _spawn_frog() -> void:
 	var frog_instance
